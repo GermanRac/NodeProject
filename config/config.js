@@ -16,7 +16,7 @@ const databaseConfig = {
     'port':'5432',
     'database':'ecoapp_db',
     'user':'postgres',
-    'password': '55ferguson' 
+    'password': 'Elmero*2024' 
 };
 
 const db =pgp(databaseConfig);

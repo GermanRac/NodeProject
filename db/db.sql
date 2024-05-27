@@ -4,11 +4,9 @@ CREATE TABLE users(
 	name VARCHAR (255) NOT NULL,
 	lastname VARCHAR (255) NOT NULL,
 	points INTEGER (200) NOT NULL,
-	consent BOOLEAN Not NULL, 
+	consent BOOLEAN NOT NULL, 
 	password VARCHAR (255) NOT NULL,
 	session_token VARCHAR(255) NULL,
 	created_at TIMESTAMP (0) NOT NULL,
-	updated_at TIMESTAMP (0) NOT NULL,
+	updated_at TIMESTAMP (0) NOT NULL
 );
-
-
