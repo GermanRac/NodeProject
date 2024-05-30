@@ -59,10 +59,11 @@ module.exports = {
                     message:'el email no fue encontrado'
                 })   
            } 
-           const isPasswordValid = await bcrypt.compare(password,myUser.password);
+           const isPasswordValid = await bcrypt.compare(password, myUser.password);
            if (isPasswordValid) {
 
             const token = jwt.sign({id:myUser.id,email:myUser.email},keys.secretOrKey,{
+
                 // expiresIn:
  
             })
@@ -72,6 +73,7 @@ module.exports = {
                 name: myUser.name,
                 lastname: myUser.lastname,
                 email : myUser.email,
+                points : myUser.points,
                 session_token: `JWT ${token}`
 
             };  
