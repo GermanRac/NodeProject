@@ -7,5 +7,6 @@ module.exports = (app) => {
     
     //Guardar Datos
     app.post('/api/users/create',usersController.register);
+    app.post('/api/users/login',usersController.login);
 
 }
