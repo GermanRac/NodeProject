@@ -5,6 +5,20 @@ const server = http.createServer(app);
 const logger = require('morgan');
 const cors = require('cors');
 const passport = require('passport');
+const multer = require('multer');
+const serviceAccount = require('./serviceAccountKey.json');
+const admin = require('firebase-admin');
+const users = require('./routes/usersRoutes');
+
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+const upload = multer({
+    storage:multer.memoryStorage()
+});
+
 
 /*
 *Rutas
@@ -32,7 +46,7 @@ app.set('port',port);
 /*
 *Llamando a las Rutas
 */
-users(app);
+users(app,upload);
 
 server.listen(3000, '192.168.56.1' || 'localhost', function() {
 

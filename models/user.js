@@ -22,7 +22,8 @@ User.findByEmail = (email) => {
         points,
         consent,  
         password, 
-        session_token
+        session_token,
+        image
     FROM
         users
     WHERE
@@ -43,7 +44,8 @@ User.findById = (id,callback)=>{
         points,
         consent,  
         password, 
-        session_token
+        session_token,
+        image
     FROM
         users
     WHERE
@@ -72,10 +74,11 @@ User.create = async (user) => {
             password, 
             session_token,
             created_at, 
-            updated_at 
+            updated_at,
+            image 
 
         )
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id
     `;
 
     return db.oneOrNone(sql,[
@@ -87,10 +90,41 @@ User.create = async (user) => {
         hash,
         user.session_token,
         new Date(),
-        new Date()
-
+        new Date(),
+        user.image
+    
+    
     ]);
 }
+
+
+User.update = (user) =>{
+    const sql =`
+    UPDATE
+        users
+    SET
+        name = $2,
+        lastname = $3,
+        updated_at $5,
+        image = $10
+        
+    WHERE
+        id = $1
+    `;
+
+    return db.none(sql, [
+        user.id,
+        user.name,
+        user.lastname,
+        new Date(),
+        user.image
+
+    ]);
+
+
+
+}
+
 
 
 module.exports = User;

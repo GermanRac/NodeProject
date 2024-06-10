@@ -55,3 +55,33 @@ VALUES(
 	'2024-06-05',
 	'2024-06-05'
 ); 
+
+
+create table reward (
+	id BIGSERIAL PRIMARY KEY,
+	name VARCHAR (180) NOT NULL,
+	image VARCHAR (255) NOT NULL,
+	description VARCHAR(200) NOT NULL,
+	reward_points VARCHAR (12) NOT NULL,
+	created_at TIMESTAMP (0) NOT NULL,
+	updated_at TIMESTAMP (0) NOT NULL
+
+);
+
+INSERT INTO  reward (
+	name,
+	image,
+	description,
+	reward_points,
+	created_at,
+	updated_at
+
+)
+VALUES(
+	Piso de Caucho',
+	'rewards_url_firebase',
+	'Material : Caucho reciclado, Dimensiones : 8m2',
+	'430 puntos'
+	'2024-06-05',
+	'2024-06-05'
+); 

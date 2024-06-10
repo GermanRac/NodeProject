@@ -3,7 +3,9 @@ const Rol = require('../models/rol');
 const bcrypt = require('bcryptjs'); 
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const keys = require('../config/keys')
+const keys = require('../config/keys');
+const storage = require('../utils/cloud_storage');
+
 
 module.exports = {
     async getAll(req,res,next){
@@ -43,7 +45,8 @@ module.exports = {
                 lastname: user.lastname,
                 email : user.email,
                 points : user.points,
-                session_token: `JWT ${token}`
+                session_token: `JWT ${token}`,
+                image : user.image
 
             }; 
 
@@ -93,7 +96,8 @@ module.exports = {
                 lastname: myUser.lastname,
                 email : myUser.email,
                 points : myUser.points,
-                session_token: `JWT ${token}`
+                session_token: `JWT ${token}`,
+                image:myUser.image
 
             };  
 
@@ -122,6 +126,46 @@ module.exports = {
             });
         }
 
+    },
+
+    async update(req,res,next) {
+        try {
+            console.log('Usuario',req.body.user);
+            const user = JSON.parse(req.body.user); //cliente debe enviar un objeto user con todos los datos del usuario
+            console.log('Usuario parseado',user);
+
+            const files = req.files;
+
+            if (files.length > 0){ //Cliente envia un archivo
+                const pathImage = `image_${Date.now()}`; // nombre del archivo
+                const url = await storage(files[0],pathImage);
+
+                if (url != undefined && url != null){
+                    user.image = url;
+
+                }
+            } 
+
+            await User.update(user);// guardando la URL en la BD
+
+            return res.status(201).json({
+                success: true,
+                message: 'Los datos del usuario se han actualizado correctamente',
+                data: user 
+            });
+
+        } catch (error) {
+            console.log(`Error: ${error}`);
+            return res.status(501).json({
+                success:false,
+                message: 'Hubo un error al actualizar los datos de el usuario',
+                error: error
+            });    
+        }
     }
+
+
+
+
         
 };
