@@ -105,8 +105,8 @@ User.update = (user) =>{
     SET
         name = $2,
         lastname = $3,
-        updated_at $5,
-        image = $10
+        image = $4,
+        updated_at = $5
         
     WHERE
         id = $1
@@ -116,8 +116,9 @@ User.update = (user) =>{
         user.id,
         user.name,
         user.lastname,
-        new Date(),
-        user.image
+        user.image,
+        new Date()
+        
 
     ]);
 

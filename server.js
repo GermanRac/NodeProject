@@ -8,7 +8,7 @@ const passport = require('passport');
 const multer = require('multer');
 const serviceAccount = require('./serviceAccountKey.json');
 const admin = require('firebase-admin');
-const users = require('./routes/usersRoutes');
+
 
 
 admin.initializeApp({
