@@ -105,8 +105,8 @@ User.update = (user) =>{
     SET
         name = $2,
         lastname = $3,
-        image = $4,
-        updated_at = $5
+        updated_at = $4,
+        image = $5
         
     WHERE
         id = $1
@@ -116,8 +116,9 @@ User.update = (user) =>{
         user.id,
         user.name,
         user.lastname,
-        user.image,
-        new Date()
+        new Date(),
+        user.image
+        
         
 
     ]);
@@ -127,25 +128,25 @@ User.update = (user) =>{
 }
 
 
-User.updateSessionToken = (id_user,session_token) =>{
-    const sql =`
-    UPDATE
-        users
-    SET
-        session_token = $2        
-    WHERE
-        id = $1
-    `;
+// User.updateSessionToken = (id_user,session_token) =>{
+//     const sql =`
+//     UPDATE
+//         users
+//     SET
+//         session_token = $2        
+//     WHERE
+//         id = $1
+//     `;
 
-    return db.none(sql, [
-        id_user,
-        session_token
+//     return db.none(sql, [
+//         id_user,
+//         session_token
 
-    ]);
+//     ]);
 
 
 
-}
+// }
 
 
 

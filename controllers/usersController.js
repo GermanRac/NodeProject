@@ -101,7 +101,7 @@ module.exports = {
 
             };  
 
-            await User.updateSessionToken(myUser.id, `JWT ${token}`);
+            //await User.updateSessionToken(myUser.id, `JWT ${token}`); //guardado de token de sesion en bdd
 
             return res.status(201).json({
                 success: true,

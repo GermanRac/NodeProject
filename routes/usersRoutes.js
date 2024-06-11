@@ -1,4 +1,5 @@
 const usersController = require('../controllers/usersController');
+// const passport = require('passport');
 
 
 module.exports = (app,upload) => {
@@ -11,8 +12,9 @@ module.exports = (app,upload) => {
     app.post('/api/users/login',usersController.login);
 
     //Actualizar Datos
+    // 401 unauthorized
     
     app.put('/api/users/update',upload.array('image',1),usersController.update);
-    app.put('/api/users/updateWithoutImage',usersController.updateWithoutImage);
+    app.put('/api/users/updateWithoutImage', usersController.updateWithoutImage);
 
 }
