@@ -1,3 +1,4 @@
+const eventsController = require('../controllers/eventsController');
 const EventsController = require('../controllers/eventsController');
 // const passport = require('passport');
 
@@ -5,7 +6,7 @@ const EventsController = require('../controllers/eventsController');
 module.exports = (app,upload) => {
     
     //Traer Datos
-    // app.get('/api/users/getAll',usersController.getAll);
+    app.get('/api/events/getAll',EventsController.getAll);
     
     //Guardar Datos
     app.post('/api/events/create',EventsController.create);

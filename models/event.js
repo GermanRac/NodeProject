@@ -2,6 +2,24 @@ const db = require('../config/config');
 
 const Event = {};
 
+
+Event.getAll = () => {
+    const sql = `
+    SELECT 
+        id,
+        name,
+        description,
+        image,
+        date
+    FROM 
+        events
+    Order BY 
+        name    
+    `;
+    return db.manyOrNone(sql);
+}
+
+
 Event.create = (event) =>{
 
     const sql =`
