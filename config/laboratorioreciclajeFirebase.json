@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "laboratorioreciclajea",
+    "private_key_id": "d800f1502a5800bd15ad33d66b1cffa9040d8885",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCSE7cShEhtDYoo\nDB5/6SsO/fjDpaWY2asEA6m3wAkRcHorYRmysaQtecXpA4bac6N9Dm8iqw2XvxEP\nkvj1djlNy9k6B1iMOgPQJlkzgPuKulAwZG5TQdPd3WRQb72ES2nhMDIUhBwOIc8I\n0XZwIVUsYx98bXbysWo4/2E32ESdl0bgFWSnGxF9IBvLgsHfQ+UOJI3QI5QtrRqN\n03wu7tmY9aZCaO5CS74gE08WG7/K4kaEIKagQ0yHBDgt2zXWYaSCZDLdYl8mYwEJ\nS7sSnFuY0OvHwjga8v+S0XU3VzJ8uNRpEwZKMcIG1etKez7FGlX5HeZAXcob5pEU\n4OvleJQ3AgMBAAECggEAANbX3GpDCEKxgVGLLDQRB+37YjDQU9p7Gifpv//8ltT8\nctiJq7PjfmUFOYrkwXIE7erHPPkoiImKVKnVpfUmEj5Zf3A4QTMGM576HUFEFEBU\nJN7hzcCALUF4SbMNm8HuHzPR+pPAUajpGi7nhNjOjGPYqCqSBE0nAat9o92bLdSX\n2WOtqFC1jSow+8hOAXZnnOphjFO4ikztlSsZJBd2z6wwf6GefxtTh1a68umkC9IA\nI06pZzkv2Vv6jaWoAmaqu8w/lOqekAy599hlJ2Hgy1r7zHiZME6+4W//8wZmhu+F\nQxi0ppZEH8B9d4PkYwTJjfEvsX/MEvcEBL9BxqqNIQKBgQDCz6D6l6y7eNCiDpBu\noLJ8IBsXNi1V1eW4nmo6YHRF+CPgqUExUieAOwVHOl5Xy1dNKqzEe7KGAazHVD0X\nno2Vb7fAvhnKhb977yH67+AvnBv+LetIpPlyySKNBcnj/7apTI6bOLuzZ3GgWF9X\nEfhhfJCUbsZpKfrEKFJelK7f+QKBgQC/9XqNUcNKN3Qj74rrwO7b+FC3FuiCRPOh\nlH6aPhOscLI6drocCQqG7G7v02GlWvjYoVUUyU7GTPNGpc09jkv1oBUr4Ni5SnIZ\nynEXd40psBph2/MEmiFiwrA7AA7lOcphvVnui7nRHbCfJpIgJI9O8qfOm5hS1B7B\nP/LS0dmBrwKBgQC72vYT0AEcQtOFAmBanZGfymH1TyQGep3sGq67HlnhQvht4yjf\ng6ZdrAxZ9DoXlRjZa8ZwLgwn1yOij2PeC+Hh8XoTXf2G4tSUkTOGRJw9rN79i5Aw\nXA3Dl5s+vA9EUkj1FsMJgXrW9HCIu88sKkMG1tSgnfWsYXPUhkFvvRapGQKBgGG3\nwyVBpBqZ1COfA6cz1eRgqiYqIT5/f06X20MFqtoznGcqnV88MwGwRmELyD926grN\nRhSIzfMgpQ8nxC07zOtDDMQDeBALF76NUbjSgSfhn+yFHVcQZ0JxPWkrhGmoW6AZ\n1jgbJQKRDKJX7jcypUlZOZdxmb9AgE98EE7FyOW9AoGAZDW1JBoJzPRO8W52hnfZ\nDbPRHd77U6bKWilp0N7J3XK3GBrMcjE7qUn5brP6DzjYob/d5o5ga8dvLhl3GCIo\nY2NfF8aR5uxiByYXrCjYh//UEfCDthl262FJRXriT8zOkyTqvJewoduoQ3YkCwEC\nIf4k3G1rASTn4YAwx2GVnpI=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-hf2tt@laboratorioreciclajea.iam.gserviceaccount.com",
+    "client_id": "110080787313787350370",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hf2tt%40laboratorioreciclajea.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }

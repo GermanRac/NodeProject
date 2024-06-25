@@ -5,6 +5,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
 const storage = require('../utils/cloud_storage');
+const firebaseAdmin = require('../firebaseConfig');
 
 
 module.exports = {
@@ -30,8 +31,31 @@ module.exports = {
             const user = req.body;  //para capturar lo que el cliente envie por medio de parametros 
             const data = await User.create(user);
 
+            // Cifrar la contraseña
+            const hashedPassword = await bcrypt.hash(user.password, 10);
+            user.password = hashedPassword;            
+            
             //insertar rol de cliente por defecto 
             await Rol.create(data.id, 1);
+
+            // // Guarda el usuario en Firebase
+            // const userRef = firebaseAdmin.database().ref('users').push();
+            // userRef.set({
+            //     id: data.id,
+            //     name: user.name,
+            //     lastname: user.lastname,
+            //     email: user.email,
+            //     points: user.points,
+            //     password: hashedPassword // Contraseña cifrada
+            // }, (error) => {
+            //     if (error) {
+            //         console.error('Error al guardar el usuario en Firebase', error);
+            //     } else {
+            //         console.log('Usuario registrado y sincronizado con Firebase');
+            //     }
+            // });
+
+
 
             const token = jwt.sign({id:data.id,email:user.email},keys.secretOrKey,{
 
