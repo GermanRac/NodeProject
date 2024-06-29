@@ -1,13 +1,17 @@
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
+// const LocalStrategy = require('passport-local'.Strategy)
 const User = require('../models/user')
 const Keys = require('./keys')
 
-module.exports = function(passport){
-    let opts = {};
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
-    opts.secretOrKey = Keys.secretOrKey
+const opts = {
+    jwtFromRequest :ExtractJwt.fromAuthHeaderWithScheme('jwt'),
+    secretOrKey: Keys.secretOrKey
 
+}; 
+
+module.exports = (passport)=>{
+    
     passport.use(new JwtStrategy(opts, (jwt_payload,done) => {
         User.findById(jwt_payload.id,(err, user) => {
             if (err){
@@ -19,7 +23,7 @@ module.exports = function(passport){
             else{
                 return done(null, false); 
             }
-        })
-    } ))  
+        });
+    } ));  
 
-}
+};

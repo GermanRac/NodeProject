@@ -26,7 +26,7 @@ Photo.create = (Photo) =>{
             name,
             image        
         )
-    VALUES($1,$2) RETURNNG id          
+    VALUES($1,$2) RETURNING id          
     `;
 
     return db.oneOrNone(sql,[

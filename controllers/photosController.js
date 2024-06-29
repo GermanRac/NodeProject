@@ -1,15 +1,17 @@
-const photo = require('../models/photo');
+const Photo = require('../models/photo');
 const storage = require('../utils/cloud_storage');
 
 
 
 module.exports = {
 
-    async create(req,res,next){
+    async create(req,res,next){ 
+
+        console.log('REQ BODY',req.body);
 
         try{
             const photo = JSON.parse (req.body.photo);  //para capturar lo que el cliente envie por medio de parametros 
-            console.log('photo',photo);
+            console.log('Photo',photo);
 
 
             const files = req.files;
@@ -25,7 +27,7 @@ module.exports = {
             } 
 
 
-            const data = await  photo.create(photo);
+            const data = await  Photo.create(photo);
 
 
 
@@ -63,7 +65,7 @@ module.exports = {
     async getAll(req,res,next){
         
         try {
-            const data = await photo.getAll();
+            const data = await Photo.getAll();
 
             return res.status(201).json(data);
             

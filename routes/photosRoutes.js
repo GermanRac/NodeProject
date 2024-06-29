@@ -1,5 +1,6 @@
+
 const PhotosController = require('../controllers/photosController');
-// const passport = require('passport');
+const passport = require('passport');
 
 
 module.exports = (app,upload) => {
@@ -8,8 +9,9 @@ module.exports = (app,upload) => {
     app.get('/api/photos/getAll',PhotosController.getAll);
     
     //Guardar Datos
-    app.post('/api/photos/create',PhotosController.create);
-    
+    // app.post('/api/photos/create',PhotosController.create);
+    // app.post('/api/photos/create',passport.authenticate('jwt',{session:false}),upload.array('image',1),PhotosController.create);
+    app.post('/api/photos/create',upload.array('image',1),PhotosController.create);    
 
     //Actualizar Datos
     // 401 unauthorized
