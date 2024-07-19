@@ -6,6 +6,7 @@ module.exports = (app,upload) => {
     
     //Traer Datos
     app.get('/api/rewards/getAll',RewardsController.getAll);
+    app.get('/api/rewards/findByCategory/:id_category',RewardsController.findByCategory);
     
     //Guardar Datos
     app.post('/api/rewards/create',RewardsController.create);

@@ -27,6 +27,7 @@ const users = require ('./routes/usersRoutes');
 const events = require ('./routes/eventsRoutes');
 const photos = require('./routes/photosRoutes');
 const rewards = require('./routes/rewardsRoutes');
+const categories = require('./routes/categoriesRoutes');
  
 const port = process.env.PORT || 3000;
 
@@ -53,6 +54,7 @@ users(app,upload);
 events(app, upload);
 photos(app,upload);
 rewards(app,upload);
+categories(app,upload);
 
 
 server.listen(3000, '192.168.56.1' || 'localhost', function() {

@@ -5,6 +5,23 @@ const storage = require('../utils/cloud_storage');
 
 module.exports = {
 
+    async findByCategory(req,res,next){
+        try {
+            const id_category = req.params.id_category;
+            const data = await Reward.findByCategory(id_category);
+            return res.status(201).json(data);
+        } catch (error) {
+            
+            console.log('Error',error);
+            return res.status(501).json({
+                success:false,
+                message: 'Hubo un error al encontrar categoria de el reward',
+                error: error
+            });    
+            
+        }
+    },
+
     async create(req,res,next){ 
 
         console.log('REQ BODY',req.body);

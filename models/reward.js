@@ -1,7 +1,26 @@
 const db = require('../config/config');
 
 const Reward = {};
-
+Reward.findByCategory = (id_category) => {
+    const sql =`
+    SELECT 
+        R.id,
+        R.name,
+        R.image,
+        R.description,
+        R.reward_points,
+        R.id_category
+    FROM 
+        rewards AS R
+	INNER JOIN
+		categories AS C
+	ON
+		R.id_category = C.id
+	WHERE
+		C.id = $1
+    `;
+    return db.manyOrNone(sql,id_category);
+}
 
 Reward.getAll = () => {
     const sql = `
@@ -10,7 +29,8 @@ Reward.getAll = () => {
         name,
         image,
         description,
-        reward_points
+        reward_points,
+        id_category
     FROM 
         rewards
     Order BY 

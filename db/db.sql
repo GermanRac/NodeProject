@@ -56,35 +56,68 @@ VALUES(
 	'2024-06-05'
 ); 
 
+create table categories (
+	id BIGSERIAL PRIMARY KEY,
+	name VARCHAR (180) NOT NULL UNIQUE,
+	image VARCHAR (255) NOT NULL,
+	created_at TIMESTAMP (0) NOT NULL
+);
 
-create table reward (
+
+create table rewards (
 	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR (180) NOT NULL,
 	image VARCHAR (255) NOT NULL,
 	description VARCHAR(200) NOT NULL,
 	reward_points VARCHAR (12) NOT NULL,
+	id_category BIGINT NOT NULL,
 	created_at TIMESTAMP (0) NOT NULL,
-	updated_at TIMESTAMP (0) NOT NULL
+	updated_at TIMESTAMP (0) NOT NULL,
+	FOREIGN KEY(id_category) REFERENCES categories(id) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
 
-INSERT INTO  reward (
+INSERT INTO  rewards (
 	name,
 	image,
 	description,
 	reward_points,
+	id_category,
 	created_at,
 	updated_at
 
 )
 VALUES(
-	Piso de Caucho',
+	'Piso de Caucho',
 	'rewards_url_firebase',
 	'Material : Caucho reciclado, Dimensiones : 8m2',
-	'430 puntos'
+	'430 puntos',
+	'1',
 	'2024-06-05',
 	'2024-06-05'
 ); 
+
+
+SELECT * FROM public.rewards
+ORDER BY id ASC 
+
+ SELECT 
+        R.id,
+        R.name,
+        R.image,
+        R.description,
+        R.reward_points,
+        R.id_category
+    FROM 
+        rewards AS R
+	INNER JOIN
+		categories AS C
+	ON
+		R.id_category = C.id
+	WHERE
+		C.id = 1
+		
+
 
 CREATE TABLE events(
 	id BIGSERIAL PRIMARY KEY,
