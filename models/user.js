@@ -85,7 +85,7 @@ User.create = async (user) => {
         user.email,
         user.name,
         user.lastname,
-        user.points,
+        0,
         user.consent,
         hash,
         user.session_token,

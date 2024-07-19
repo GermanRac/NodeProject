@@ -1,24 +1,42 @@
 const Reward = require('../models/reward');
 const storage = require('../utils/cloud_storage');
 
-
+const categorias = ["","","Exteriores","Plantas"]
 
 module.exports = {
 
-    async findByCategory(req,res,next){
+    // async findByCategory(req,res,next){
+    //     try {
+    //         const id_category = req.params.id_category;
+    //         const data = await Reward.findByCategory(id_category);
+    //         return res.status(201).json(data);
+    //     } catch (error) {
+            
+    //         console.log('Error',error);
+    //         return res.status(501).json({
+    //             success:false,
+    //             message: 'Hubo un error al encontrar categoria de el reward',
+    //             error: error
+    //         });    
+            
+    //     }
+    // },
+
+
+    async findByCategory(req,res,next) {
         try {
+            const response = await fetch("https://laboratorioreciclajea-default-rtdb.firebaseio.com/rewards.json");
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
             const id_category = req.params.id_category;
-            const data = await Reward.findByCategory(id_category);
-            return res.status(201).json(data);
+            const category = categorias[id_category]
+            const data = await response.json();
+            const def = data.filter((item) => item !== null && item["category"] === category ) 
+            
+            return res.status(201).json(def);
         } catch (error) {
-            
-            console.log('Error',error);
-            return res.status(501).json({
-                success:false,
-                message: 'Hubo un error al encontrar categoria de el reward',
-                error: error
-            });    
-            
+            console.error(`Fetch error: ${error.message}`);
         }
     },
 

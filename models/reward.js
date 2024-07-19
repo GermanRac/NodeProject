@@ -9,6 +9,7 @@ Reward.findByCategory = (id_category) => {
         R.image,
         R.description,
         R.reward_points,
+        R.quantity,
         R.id_category
     FROM 
         rewards AS R
