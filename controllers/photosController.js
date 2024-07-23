@@ -31,16 +31,16 @@ module.exports = {
 
 
 
-            const myData = {
-                id: data.id,
-                name: user.name,
-                lastname: user.lastname,
-                email : user.email,
-                points : user.points,
-                session_token: `JWT ${token}`,
-                image : user.image
+            // const myData = {
+            //     id: data.id,
+            //     name: user.name,
+            //     lastname: user.lastname,
+            //     email : user.email,
+            //     points : user.points,
+            //     session_token: `JWT ${token}`,
+            //     image : user.image
 
-            }; 
+            // }; 
 
             return res.status(201).json({
                 success:true,

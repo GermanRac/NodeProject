@@ -118,11 +118,8 @@ User.update = (user) =>{
         user.lastname,
         new Date(),
         user.image
-        
-        
 
     ]);
-
 
 
 }

@@ -60,25 +60,47 @@ module.exports = {
     },
 
 
-    async getAll(req,res,next){
+    // async getAll(req,res,next){
         
+    //     try {
+    //         const data = await Event.getAll();
+
+    //         return res.status(201).json(data);
+            
+    //     } catch (error) {
+
+    //         console.log('Error',error);
+    //         return res.status(501).json({
+    //             success:false,
+    //             message: 'Hubo un error al crear el evento',
+    //             error: error
+            
+    //         });
+    //     }    
+    // }
+
+    async getAll(req, res, next) {
         try {
-            const data = await Event.getAll();
-
-            return res.status(201).json(data);
+            const response = await fetch("https://laboratorioreciclajea-default-rtdb.firebaseio.com/events.json");
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
             
+            // Procesar los datos para extraer la información requerida
+            const processedData = Object.values(data).map(event => ({
+                description: event.description,
+                event_date: event.event_date,
+                imageUrl: event.imageUrl,
+                title: event.title
+            }));
+    
+            return res.status(200).json(processedData);
         } catch (error) {
-
-            console.log('Error',error);
-            return res.status(501).json({
-                success:false,
-                message: 'Hubo un error al crear el evento',
-                error: error
-            
-            });
-        }    
-    }
-
+            console.error(`Fetch error: ${error.message}`);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+    },
 
 
 

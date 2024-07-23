@@ -1,7 +1,7 @@
 const Reward = require('../models/reward');
 const storage = require('../utils/cloud_storage');
 
-const categorias = ["","","Exteriores","Plantas"]
+const categorias = ["","Decorativos","Exteriores","Plantas","Productos Locales","Descuentos Restaurante"]
 
 module.exports = {
 
